@@ -26,20 +26,20 @@ public class DepartmentRepository
     }
 
 
-    public async Task<bool> UpdateDepartmentName(int DNumber, string DName)
+    public async Task UpdateDepartmentName(int DNumber, string DName)
     {
-        return await _connection.ExecuteAsync("usp_UpdateDepartmentName", new { DNumber, DName }, commandType: CommandType.StoredProcedure) == 0;
+        await _connection.ExecuteAsync("usp_UpdateDepartmentName", new { DNumber, DName }, commandType: CommandType.StoredProcedure);
     }
 
     public async Task<bool> UpdateDepartmentManager(int DNumber, int MgrSSN)
     {
-        return await _connection.ExecuteAsync("usp_UpdateDepartmentManager", new { DNumber, MgrSSN }, commandType: CommandType.StoredProcedure) == 0;
+        return (await _connection.ExecuteAsync("usp_UpdateDepartmentManager", new { DNumber, MgrSSN }, commandType: CommandType.StoredProcedure)) > 0;
     }
 
 
-    public async Task<bool> DeleteDepartment(int DNumber)
+    public async Task DeleteDepartment(int DNumber)
     {
-        return await _connection.ExecuteAsync("usp_DeleteDepartment", new { DNumber }, commandType: CommandType.StoredProcedure) == 0;
+        await _connection.ExecuteAsync("usp_DeleteDepartment", new { DNumber }, commandType: CommandType.StoredProcedure);
     }
 
     public async Task<Department> GetDepartment(int DNumber)

@@ -27,7 +27,7 @@ Console.WriteLine($"Last Created Dept Id: {lastMadeId}");
 Console.WriteLine($"\n\nUpdate Dept Name of Department {lastMadeId}:");
 Console.WriteLine("Input New Name:");
 string name = Console.ReadLine()!;
-Console.WriteLine("1. Updated: " + await repository.UpdateDepartmentName(lastMadeId, name));
+await repository.UpdateDepartmentName(lastMadeId, name);
 
 Console.WriteLine($"\n\nUpdate Dept Manager of Department {lastMadeId}:");
 Console.WriteLine("Input New Manger SSN:");
@@ -38,9 +38,9 @@ Console.WriteLine($"\n\nUpdated Department with Id {lastMadeId}:");
 Console.WriteLine(await repository.GetDepartment(lastMadeId));
 
 Console.WriteLine("\n\nDelete new department:");
-Console.WriteLine("3. Deleted: " + await repository.DeleteDepartment(lastMadeId));
+await repository.DeleteDepartment(lastMadeId);
 
-Console.WriteLine("All Departments");
+Console.WriteLine("\n\nAll Departments");
 foreach (Department department in await repository.GetAllDepartments())
 {
     Console.WriteLine(department);
