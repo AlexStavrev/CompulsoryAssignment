@@ -37,6 +37,12 @@ Console.WriteLine("2. Updated: " + await repository.UpdateDepartmentManager(last
 Console.WriteLine($"\n\nUpdated Department with Id {lastMadeId}:");
 Console.WriteLine(await repository.GetDepartment(lastMadeId));
 
+Console.WriteLine("\n\nAll Departments");
+foreach (Department department in await repository.GetAllDepartments())
+{
+    Console.WriteLine(department);
+}
+
 Console.WriteLine("\n\nDelete new department:");
 await repository.DeleteDepartment(lastMadeId);
 
