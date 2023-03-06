@@ -31,9 +31,9 @@ public class DepartmentRepository
         await _connection.ExecuteAsync("usp_UpdateDepartmentName", new { DNumber, DName }, commandType: CommandType.StoredProcedure);
     }
 
-    public async Task<bool> UpdateDepartmentManager(int DNumber, int MgrSSN)
+    public async Task UpdateDepartmentManager(int DNumber, int MgrSSN)
     {
-        return (await _connection.ExecuteAsync("usp_UpdateDepartmentManager", new { DNumber, MgrSSN }, commandType: CommandType.StoredProcedure)) > 0;
+        await _connection.ExecuteAsync("usp_UpdateDepartmentManager", new { DNumber, MgrSSN }, commandType: CommandType.StoredProcedure);
     }
 
 

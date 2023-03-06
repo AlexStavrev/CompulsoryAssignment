@@ -32,7 +32,7 @@ await repository.UpdateDepartmentName(lastMadeId, name);
 Console.WriteLine($"\n\nUpdate Dept Manager of Department {lastMadeId}:");
 Console.WriteLine("Input New Manger SSN:");
 int mngSsn = int.Parse(Console.ReadLine()!);
-Console.WriteLine("2. Updated: " + await repository.UpdateDepartmentManager(lastMadeId, mngSsn));
+await repository.UpdateDepartmentManager(lastMadeId, mngSsn);
 
 Console.WriteLine($"\n\nUpdated Department with Id {lastMadeId}:");
 Console.WriteLine(await repository.GetDepartment(lastMadeId));
